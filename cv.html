@@ -4,6 +4,8 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Yasir Rasheed - CV</title>
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%232a2c3a'/%3E%3Ctext x='32' y='43' text-anchor='middle' font-family='Arial,sans-serif' font-size='28' font-weight='700' fill='white'%3EYR%3C/text%3E%3C/svg%3E">
+<meta name="theme-color" content="#2a2c3a">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&family=Poppins:ital,wght@1,400;1,500&display=swap" rel="stylesheet">
@@ -76,12 +78,17 @@
 
   /* ---------- Skills ---------- */
   .skills {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    column-gap: 12px;
+    display: block;
   }
-  .skills ul { margin-top: 0; }
-  .skills li { text-align: left; }
+  .skill-points {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    column-gap: 20px;
+    row-gap: 0;
+    margin-top: 0;
+  }
+  .skill-points li { text-align: left; margin-bottom: 3px; }
+  .skill-points strong { color: #2a2c3a; }
 
   /* ---------- Entries ---------- */
   .entry { margin-bottom: 9px; }
@@ -127,7 +134,7 @@
     .page { width: 100%; margin: 0; min-height: 0; padding: 20px var(--edge); }
     header { grid-template-columns: 1fr; }
     .photo { order: -1; margin-bottom: 12px; }
-    .skills { grid-template-columns: repeat(2, 1fr); row-gap: 0; }
+    .skill-points { grid-template-columns: 1fr; }
     .name { font-size: 28px; } .title { font-size: 16px; }
     .row { flex-direction: column; gap: 0; }
   }
@@ -149,7 +156,7 @@
       <div class="title">SOFTWARE ENGINEERING STUDENT<br>AND CREATIVE PROFESSIONAL</div>
       <div class="contact">
         +92 320-4308209 | ygill1207@gmail.com | Bahar Chowk Masoom Shah Road, Multan<br>
-        <a href="https://www.linkedin.com/in/yasirrasheed-736392243">linkedin.com/in/yasirrasheed-736392243</a>
+        <a href="https://www.linkedin.com/in/yasir-rasheed04/">linkedin.com/in/yasir-rasheed04/</a>
       </div>
     </div>
     <!-- Put your photo in the same folder and name it photo.jpg -->
@@ -157,20 +164,41 @@
   </header>
 
   <div class="bar">Summary</div>
-  <p class="summary">Passionate and motivated Software Engineering student pursuing a Bachelor's degree with strong experience in graphic design, video editing, and web development. Skilled in creating engaging digital content and responsive web applications, with a proven ability to deliver creative, high-quality technical solutions.</p>
+  <p class="summary">Software Engineering student at NFC IET Multan with hands-on experience in <b>Java development, Android application development, web development, Artificial Intelligence, and UI/UX design</b>. Experienced in building practical software projects through internships, applying programming concepts, and developing user-focused applications. Skilled in Java, Kotlin, web technologies, and modern development tools, with additional experience in graphic design and video editing.</p>
 
   <div class="bar">Technical Skills</div>
   <div class="skills">
-    <ul><li>HTML</li><li>CSS &amp; JavaScript</li><li>C Programming</li><li>Java</li></ul>
-    <ul><li>MySQL</li><li>Git/GitHub</li><li>Rule-Based AI</li><li>Microsoft Office</li></ul>
-    <ul><li>UI/UX Design</li><li>UX Research</li><li>Graphic Design</li><li>Video Editing</li></ul>
-    <ul><li>Adobe Photoshop</li><li>CorelDraw</li><li>Premiere Pro</li><li>After Effects</li></ul>
+    <ul class="skill-points">
+      <li><strong>Programming Languages:</strong> Java, Kotlin, C, HTML, CSS, JavaScript</li>
+      <li><strong>Development:</strong> Android Development, Web Development, MySQL, Room Database</li>
+      <li><strong>Tools &amp; Technologies:</strong> Android Studio, Git, GitHub, Figma, Microsoft Office</li>
+      <li><strong>AI &amp; UI/UX:</strong> Rule-Based AI, UI/UX Design, UX Research, Wireframing, Prototyping</li>
+      <li><strong>Creative Skills:</strong> Graphic Design, Video Editing</li>
+      <li><strong>Design &amp; Editing Software:</strong> Adobe Photoshop, CorelDRAW, Adobe Premiere Pro, Adobe After Effects</li>
+    </ul>
   </div>
 
   <div class="bar">Professional Experience</div>
 
   <div class="entry">
-    <div class="row"><span>UI/UX Design Intern | CodeAlpha (Virtual)</span><span class="date">Sep 2026 – Present</span></div>
+    <div class="row"><span>Java Developer Intern | Oasis Infobyte (OIBSIP)</span><span class="date">Oct 5, 2026 &#x2013; Nov 5, 2026</span></div>
+    <ul>
+      <li>Completed Java development tasks by building three applications: <b>Number Guessing Game, ATM Interface, and Online Examination System</b>.</li>
+      <li>Implemented core Java concepts, object-oriented programming, input validation, authentication, transaction management, and timed examinations.</li>
+      <li>Developed console-based applications and a GUI-based examination system using <b>Java, Java Swing, and OOP principles</b>.</li>
+    </ul>
+  </div>
+
+<div class="entry">
+    <div class="row"><span>Android App Development Intern | Arch Tech (Virtual)</span><span class="date">Oct 2026 – Nov 2026</span></div>
+    <ul>
+      <li>Completed a two-month internship developing four Android applications: College Alert, SecureMall, Digital Art Gallery, and Time Zone Converter.</li>
+      <li>Designed mobile interfaces and implemented features using Kotlin, Jetpack Compose, Room Database, and Java Time API.</li>
+      <li>Gained hands-on experience in Android development, application functionality, and project documentation using Android Studio.</li>
+    </ul>
+  </div>
+  <div class="entry">
+    <div class="row"><span>UI/UX Design Intern | CodeAlpha (Virtual)</span><span class="date">Oct 2026 – Oct 2026</span></div>
     <ul>
       <li>Working on practical UI/UX design projects and assignments, applying user-centered design concepts to digital experiences.</li>
       <li>Developing UI/UX and technical skills through hands-on project work while collaborating and communicating professionally.</li>
@@ -178,10 +206,20 @@
   </div>
 
   <div class="entry">
-    <div class="row"><span>Web Developer Intern | TechSphere PK (Remote)</span><span class="date">Sep 2026 – Sep 2026</span></div>
+    <div class="row"><span>Web Developer Intern | TechSphere PK (Remote)</span><span class="date">Sep 2026 – Oct 2026</span></div>
     <ul>
       <li>Building full-stack web applications for live client and portfolio projects using HTML, CSS, and JavaScript.</li>
       <li>Collaborating with the remote development team to design responsive front-end interfaces, implement back-end functionality, and deliver reliable web solutions on schedule.</li>
+    </ul>
+  </div>
+
+  <div class="entry">
+    <div class="row"><span>DecodeLabs — AI Intern | AI &amp; Software Development Projects (Remote)</span><span class="date">Aug 2026 - Sep 2026</span></div>
+    <ul>
+      <li><b>AI Chatbot:</b> Built a Python chatbot using keyword matching and logic for automated query handling.</li>
+      <li><b>Data Classifier:</b> Developed an AI classification model to process and categorize input data.</li>
+      <li><b>Recommendation Logic:</b> Implemented algorithms to analyze user preference and generate recommendation.</li>
+      <li><b>OCR Tool:</b> Engineered a text extraction tool using OpenCV and MobileNet-SSD with high accuracy.</li>
     </ul>
   </div>
 
@@ -216,16 +254,6 @@
 <div class="page">
 
   <div class="bar" style="margin-top:0">Projects</div>
-
-  <div class="entry">
-    <div class="row"><span>DecodeLabs — AI Intern | AI &amp; Software Development Projects (Remote)</span><span class="date">Aug 2026 - Sep 2026</span></div>
-    <ul>
-      <li><b>AI Chatbot:</b> Built a Python chatbot using keyword matching and logic for automated query handling.</li>
-      <li><b>Data Classifier:</b> Developed an AI classification model to process and categorize input data.</li>
-      <li><b>Recommendation Logic:</b> Implemented algorithms to analyze user preference and generate recommendation.</li>
-      <li><b>OCR Tool:</b> Engineered a text extraction tool using OpenCV and MobileNet-SSD with high accuracy.</li>
-    </ul>
-  </div>
 
   <div class="entry">
     <div class="row"><span>Project Manager – Event Management System | University Project</span><span class="date">Jan 2026 – Aug 2026</span></div>
@@ -332,10 +360,14 @@
       // skills grid -> table
       var sk = p.querySelector(".skills");
       if (sk) {
-        var cells = Array.prototype.map.call(sk.querySelectorAll("ul"), function (u) {
-          return '<td valign="top" width="25%"><ul>' + u.innerHTML + '</ul></td>';
-        }).join("");
-        sk.replaceWith(el('<table width="100%" cellspacing="0" cellpadding="0"><tr>' + cells + '</tr></table>'));
+        var points = Array.prototype.map.call(sk.querySelectorAll(".skill-points > li"), function (li) {
+          return '<td valign="top" width="50%" style="padding-right:8pt;padding-bottom:4pt">&bull;&nbsp;' + li.innerHTML + '</td>';
+        });
+        var rows = [];
+        for (var i = 0; i < points.length; i += 2) {
+          rows.push('<tr>' + points.slice(i, i + 2).join("") + '</tr>');
+        }
+        sk.replaceWith(el('<table width="100%" cellspacing="0" cellpadding="0">' + rows.join("") + '</table>'));
       }
     });
 
