@@ -1,12 +1,405 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta http-equiv="refresh" content="0; url=./cv.html">
-  <title>Yasir Rasheed - CV</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Yasir Rasheed - CV</title>
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%232a2c3a'/%3E%3Ctext x='32' y='43' text-anchor='middle' font-family='Arial,sans-serif' font-size='28' font-weight='700' fill='white'%3EYR%3C/text%3E%3C/svg%3E">
+<meta name="theme-color" content="#2a2c3a">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&family=Poppins:ital,wght@1,400;1,500&display=swap" rel="stylesheet">
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --edge: 12mm;          /* one left/right margin used everywhere */
+    --bullet-indent: 20px; /* one indent used by every list */
+  }
+
+  body {
+    background: #e9e9e9;
+    font-family: "Montserrat", "Segoe UI", Arial, sans-serif;
+    font-size: 12.3px;
+    line-height: 1.42;
+    color: #1a1a1a;
+  }
+
+  /* ---------- A4 sheet ---------- */
+  .page {
+    width: 210mm;
+    min-height: 297mm;
+    margin: 20px auto;
+    padding: 10mm var(--edge) 10mm;
+    background: #fff;
+    box-shadow: 0 2px 12px rgba(0,0,0,.2);
+  }
+
+  /* ---------- Header ---------- */
+  header {
+    display: grid;
+    grid-template-columns: 1fr 135px;
+    column-gap: 20px;
+    align-items: start;
+  }
+  .name {
+    font-size: 36px; font-weight: 800; letter-spacing: .5px;
+    color: #2a2c3a; line-height: 1.15;
+  }
+  .title {
+    font-size: 20px; font-weight: 700; line-height: 1.3;
+    margin-top: 6px;
+  }
+  .contact { margin-top: 8px; font-size: 12.5px; line-height: 1.6; }
+  .contact a { color: #1a1a1a; }
+  .photo {
+    width: 135px; height: 135px; border-radius: 50%;
+    object-fit: cover; background: #cfcfcf; display: block;
+  }
+
+  /* ---------- Section bars ---------- */
+  .bar {
+    background: #d9d9d9;
+    border-radius: 999px;
+    margin: 13px 0 8px;
+    padding: 4px 22px;
+    font-family: "Poppins", "Montserrat", sans-serif;
+    font-style: italic; font-weight: 500;
+    font-size: 15px; text-transform: uppercase;
+    color: #4a4a55;
+  }
+  header + .bar { margin-top: 12px; }
+
+  p.summary { text-align: justify; }
+
+  /* ---------- Lists (single shared indent) ---------- */
+  ul { list-style: disc; padding-left: var(--bullet-indent); margin-top: 3px; }
+  li { margin-bottom: 2px; text-align: justify; }
+
+  /* ---------- Skills ---------- */
+  .skills {
+    display: block;
+  }
+  .skill-points {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    column-gap: 20px;
+    row-gap: 0;
+    margin-top: 0;
+  }
+  .skill-points li { text-align: left; margin-bottom: 3px; }
+  .skill-points strong { color: #2a2c3a; }
+
+  /* ---------- Entries ---------- */
+  .entry { margin-bottom: 9px; }
+  .row {
+    display: flex; justify-content: space-between; align-items: baseline;
+    gap: 16px; font-weight: 700;
+  }
+  .row .date { white-space: nowrap; }
+  sup { font-size: 9px; line-height: 0; }
+
+
+  /* ---------- Download toolbar ---------- */
+  .toolbar {
+    position: fixed; top: 14px; right: 14px; z-index: 10;
+    display: flex; gap: 8px;
+  }
+  .toolbar button {
+    font: 600 13px "Montserrat", "Segoe UI", Arial, sans-serif;
+    padding: 9px 16px; border: 0; border-radius: 999px;
+    background: #2a2c3a; color: #fff; cursor: pointer;
+    box-shadow: 0 2px 8px rgba(0,0,0,.25);
+  }
+  .toolbar button:hover { background: #3d4056; }
+  .toolbar button:focus-visible { outline: 2px solid #4a6cf7; outline-offset: 2px; }
+  @media print { .toolbar { display: none !important; } }
+  @media (max-width: 820px) { .toolbar { position: static; padding: 12px 16px 0; } }
+
+  /* ---------- Print ---------- */
+  @page { size: A4; margin: 10mm 0; }
+  @media print {
+    body { background: #fff; }
+    /* content flows across sheets, so a different font width can never create a stray page */
+    .page { margin: 0; box-shadow: none; min-height: 0; padding: 0 var(--edge); }
+    .entry { break-inside: avoid; }
+    .bar { break-after: avoid; }
+    .page + .page .bar:first-child { margin-top: 13px !important; }
+    * { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+  }
+
+  /* ---------- Small screens ---------- */
+  @media (max-width: 820px) {
+    :root { --edge: 16px; }
+    .page { width: 100%; margin: 0; min-height: 0; padding: 20px var(--edge); }
+    header { grid-template-columns: 1fr; }
+    .photo { order: -1; margin-bottom: 12px; }
+    .skill-points { grid-template-columns: 1fr; }
+    .name { font-size: 28px; } .title { font-size: 16px; }
+    .row { flex-direction: column; gap: 0; }
+  }
+</style>
 </head>
 <body>
-  <p>Opening <a href="./cv.html">Yasir Rasheed's CV</a>...</p>
+
+<div class="toolbar">
+  <button type="button" onclick="downloadPDF()">Download PDF</button>
+  <button type="button" onclick="downloadWord()">Download Word</button>
+</div>
+
+<!-- ================= PAGE 1 ================= -->
+<div class="page">
+
+  <header>
+    <div>
+      <h1 class="name">YASIR RASHEED</h1>
+      <div class="title">SOFTWARE ENGINEERING STUDENT<br>AND CREATIVE PROFESSIONAL</div>
+      <div class="contact">
+        +92 320-4308209 | ygill1207@gmail.com | Bahar Chowk Masoom Shah Road, Multan<br>
+        <a href="https://www.linkedin.com/in/yasir-rasheed04/">linkedin.com/in/yasir-rasheed04/</a>
+      </div>
+    </div>
+    <!-- Put your photo in the same folder and name it photo.jpg -->
+    <img class="photo" src="photo.jpg" alt="Yasir Rasheed">
+  </header>
+
+  <div class="bar">Summary</div>
+  <p class="summary">Software Engineering student at NFC IET Multan with hands-on experience in <b>Java development, Android application development, web development, Artificial Intelligence, and UI/UX design</b>. Experienced in building practical software projects through internships, applying programming concepts, and developing user-focused applications. Skilled in Java, Kotlin, web technologies, and modern development tools, with additional experience in graphic design and video editing.</p>
+
+  <div class="bar">Technical Skills</div>
+  <div class="skills">
+    <ul class="skill-points">
+      <li><strong>Programming Languages:</strong> Java, Kotlin, C, HTML, CSS, JavaScript</li>
+      <li><strong>Development:</strong> Android Development, Web Development, MySQL, Room Database</li>
+      <li><strong>Tools &amp; Technologies:</strong> Android Studio, Git, GitHub, Figma, Microsoft Office</li>
+      <li><strong>AI &amp; UI/UX:</strong> Rule-Based AI, UI/UX Design, UX Research, Wireframing, Prototyping</li>
+      <li><strong>Creative Skills:</strong> Graphic Design, Video Editing</li>
+      <li><strong>Design &amp; Editing Software:</strong> Adobe Photoshop, CorelDRAW, Adobe Premiere Pro, Adobe After Effects</li>
+    </ul>
+  </div>
+
+  <div class="bar">Professional Experience</div>
+
+  <div class="entry">
+    <div class="row"><span>Java Developer Intern | Oasis Infobyte (OIBSIP)</span><span class="date">Oct 5, 2026 &#x2013; Nov 5, 2026</span></div>
+    <ul>
+      <li>Completed Java development tasks by building three applications: <b>Number Guessing Game, ATM Interface, and Online Examination System</b>.</li>
+      <li>Implemented core Java concepts, object-oriented programming, input validation, authentication, transaction management, and timed examinations.</li>
+      <li>Developed console-based applications and a GUI-based examination system using <b>Java, Java Swing, and OOP principles</b>.</li>
+    </ul>
+  </div>
+
+<div class="entry">
+    <div class="row"><span>Android App Development Intern | Arch Tech (Virtual)</span><span class="date">Oct 2026 – Nov 2026</span></div>
+    <ul>
+      <li>Completed a two-month internship developing four Android applications: College Alert, SecureMall, Digital Art Gallery, and Time Zone Converter.</li>
+      <li>Designed mobile interfaces and implemented features using Kotlin, Jetpack Compose, Room Database, and Java Time API.</li>
+      <li>Gained hands-on experience in Android development, application functionality, and project documentation using Android Studio.</li>
+    </ul>
+  </div>
+  <div class="entry">
+    <div class="row"><span>UI/UX Design Intern | CodeAlpha (Virtual)</span><span class="date">Oct 2026 – Oct 2026</span></div>
+    <ul>
+      <li>Working on practical UI/UX design projects and assignments, applying user-centered design concepts to digital experiences.</li>
+      <li>Developing UI/UX and technical skills through hands-on project work while collaborating and communicating professionally.</li>
+    </ul>
+  </div>
+
+  <div class="entry">
+    <div class="row"><span>Web Developer Intern | TechSphere PK (Remote)</span><span class="date">Sep 2026 – Oct 2026</span></div>
+    <ul>
+      <li>Building full-stack web applications for live client and portfolio projects using HTML, CSS, and JavaScript.</li>
+      <li>Collaborating with the remote development team to design responsive front-end interfaces, implement back-end functionality, and deliver reliable web solutions on schedule.</li>
+    </ul>
+  </div>
+
+  <div class="entry">
+    <div class="row"><span>DecodeLabs — AI Intern | AI &amp; Software Development Projects (Remote)</span><span class="date">Aug 2026 - Sep 2026</span></div>
+    <ul>
+      <li><b>AI Chatbot:</b> Built a Python chatbot using keyword matching and logic for automated query handling.</li>
+      <li><b>Data Classifier:</b> Developed an AI classification model to process and categorize input data.</li>
+      <li><b>Recommendation Logic:</b> Implemented algorithms to analyze user preference and generate recommendation.</li>
+      <li><b>OCR Tool:</b> Engineered a text extraction tool using OpenCV and MobileNet-SSD with high accuracy.</li>
+    </ul>
+  </div>
+
+  <div class="entry">
+    <div class="row"><span>Manager and Graphic Designer | Flex Linx Graphics</span><span class="date">Jan 2026 – Aug 2026</span></div>
+    <ul>
+      <li>Created 30+ custom marketing graphics, flex banners, and branding assets tailored to local business campaigns and events.</li>
+      <li>Managed shop workflow and order prioritization, improving client order turnaround time and daily service efficiency.</li>
+    </ul>
+  </div>
+
+  <div class="entry">
+    <div class="row"><span>Manager &amp; Graphic Designer | Allahabad Naturals, Multan</span><span class="date">Apr 2025 – Aug 2026</span></div>
+    <ul>
+      <li>Supervised daily retail operations, staff assignments, daily/monthly sales reports, and cash operations.</li>
+      <li>Designed product posters, pricing lists, and marketing graphics to strengthen brand identity.</li>
+    </ul>
+  </div>
+
+  <div class="entry">
+    <div class="row"><span>Graphic Designer &amp; Video Editor | Freelance / Creative Services</span><span class="date">Aug 2024 – Aug 2026</span></div>
+    <ul>
+      <li>Designed custom brand identities, vector assets, and promotional marketing materials using Photoshop, Illustrator, and Canva.</li>
+      <li>Produced short-form social media reels and video ad concepts featuring motion graphics, color grading, and sound design using Premiere Pro and CapCut.</li>
+      <li>Managed end-to-end client projects from consultation through draft revisions to final delivery, and edited video content for clients across various platforms.</li>
+    </ul>
+  </div>
+
+  </div>
+
+<!-- ================= PAGE 2 ================= -->
+<div class="page">
+
+  <div class="bar" style="margin-top:0">Projects</div>
+
+  <div class="entry">
+    <div class="row"><span>Project Manager – Event Management System | University Project</span><span class="date">Jan 2026 – Aug 2026</span></div>
+    <ul>
+      <li>Led project planning and team execution, presenting the final system to the department head.</li>
+      <li>Contributed to front-end development of a responsive Event Management System using HTML, CSS, and JS.</li>
+    </ul>
+  </div>
+
+  <div class="bar">Education</div>
+
+  <div class="entry">
+    <div class="row"><span>Bachelor in Software Engineering</span><span class="date">Sep 2024 – Sep 2028</span></div>
+    <ul>
+      <li>NFC Institute of Engineering and Technology</li>
+      <li>Major in Software Development CGPA: 3.85 / 4.0 (4<sup>th</sup> Semester)</li>
+    </ul>
+  </div>
+
+  <div class="entry">
+    <div class="row"><span>F.Sc. Pre-Engineering</span><span class="date">May 2022 – Jul 2024</span></div>
+    <ul>
+      <li>Punjab Group of Colleges</li>
+      <li>Marks Obtained: 940 / 1200 (78%)</li>
+    </ul>
+  </div>
+
+  <div class="entry">
+    <div class="row"><span>Matriculation</span><span class="date">2019 – 2022</span></div>
+    <ul>
+      <li>Elixir High School</li>
+      <li>Marks Obtained: 1039 / 1100 (94%)</li>
+    </ul>
+  </div>
+
+  <div class="bar">Additional Information</div>
+  <ul>
+    <li><b>Languages:</b> English, Urdu.</li>
+    <li><b>Certifications:</b> Digital Marketing Certificate | Graphic Designing Certificate | Video Editing Certificate | Artificial Intelligence Certificate @Decodelabs | Data Analytics | Web Developer @Techsphere PK</li>
+    <li><b>Core Competencies:</b> Leadership | Communication | Teamwork | Time Management | Presentation Skills</li>
+    <li><b>Awards/Activities:</b> PFTP Graphic Designing Award Gold Medalist (2024), Decodelabs Artificial Intelligence (2026)</li>
+  </ul>
+</div>
+
+
+<script>
+  var FILE_NAME = "Yasir_Rasheed_CV";
+
+  /* ---------- PDF: uses the browser's print dialog ---------- */
+  function downloadPDF() {
+    var oldTitle = document.title;
+    document.title = FILE_NAME;               // becomes the default PDF file name
+    window.print();                           // choose "Save as PDF" as the destination
+    document.title = oldTitle;
+  }
+
+  /* ---------- Word: builds a .doc file Word can open ---------- */
+  function el(html) {
+    var d = document.createElement("div");
+    d.innerHTML = html.trim();
+    return d.firstChild;
+  }
+
+  function photoDataUrl() {
+    try {
+      var img = document.querySelector(".photo");
+      if (!img || !img.complete || !img.naturalWidth) return "";
+      var c = document.createElement("canvas");
+      c.width = img.naturalWidth; c.height = img.naturalHeight;
+      c.getContext("2d").drawImage(img, 0, 0);
+      return c.toDataURL("image/jpeg", 0.9);
+    } catch (e) { return ""; }                // blocked when opened from a local file
+  }
+
+  function downloadWord() {
+    var pages = Array.prototype.map.call(document.querySelectorAll(".page"), function (p) {
+      return p.cloneNode(true);
+    });
+    var photo = photoDataUrl();
+
+    pages.forEach(function (p) {
+      // header -> two-column table
+      var h = p.querySelector("header");
+      if (h) {
+        var info = h.firstElementChild.innerHTML;
+        var pic = photo ? '<img src="' + photo + '" width="110" height="110">' : "";
+        h.replaceWith(el('<table width="100%" cellspacing="0" cellpadding="0"><tr>' +
+          '<td valign="top">' + info + '</td>' +
+          '<td valign="top" align="right" width="120">' + pic + '</td></tr></table>'));
+      }
+      // section bars -> shaded one-cell tables
+      p.querySelectorAll(".bar").forEach(function (b) {
+        b.replaceWith(el('<table width="100%" cellspacing="0" cellpadding="0" style="margin-top:8pt;margin-bottom:4pt"><tr>' +
+          '<td style="background:#d9d9d9;padding:3pt 12pt;font-style:italic;color:#4a4a55;text-transform:uppercase">' +
+          b.textContent + '</td></tr></table>'));
+      });
+      // title + date rows -> two-cell tables
+      p.querySelectorAll(".row").forEach(function (r) {
+        var sp = r.querySelectorAll("span");
+        r.replaceWith(el('<table width="100%" cellspacing="0" cellpadding="0"><tr>' +
+          '<td style="font-weight:bold">' + sp[0].innerHTML + '</td>' +
+          '<td align="right" style="font-weight:bold;white-space:nowrap">' + sp[1].innerHTML + '</td></tr></table>'));
+      });
+      // skills grid -> table
+      var sk = p.querySelector(".skills");
+      if (sk) {
+        var points = Array.prototype.map.call(sk.querySelectorAll(".skill-points > li"), function (li) {
+          return '<td valign="top" width="50%" style="padding-right:8pt;padding-bottom:4pt">&bull;&nbsp;' + li.innerHTML + '</td>';
+        });
+        var rows = [];
+        for (var i = 0; i < points.length; i += 2) {
+          rows.push('<tr>' + points.slice(i, i + 2).join("") + '</tr>');
+        }
+        sk.replaceWith(el('<table width="100%" cellspacing="0" cellpadding="0">' + rows.join("") + '</table>'));
+      }
+    });
+
+    var body = pages.map(function (p) { return p.innerHTML; })
+      .join('<br clear="all" style="page-break-before:always">');
+
+    var html =
+      '<html xmlns:o="urn:schemas-microsoft-com:office:office" xmlns:w="urn:schemas-microsoft-com:office:word" xmlns="http://www.w3.org/TR/REC-html40">' +
+      '<head><meta charset="utf-8"><title>' + FILE_NAME + '</title>' +
+      '<!--[if gte mso 9]><xml><w:WordDocument><w:View>Print</w:View><w:Zoom>100</w:Zoom></w:WordDocument></xml><![endif]-->' +
+      '<style>' +
+      '@page { size: 21cm 29.7cm; margin: 1.3cm 1.4cm; }' +
+      'body { font-family: Calibri, Arial, sans-serif; font-size: 10pt; color: #1a1a1a; }' +
+      '.name { font-size: 26pt; font-weight: bold; color: #2a2c3a; margin: 0; }' +
+      '.title { font-size: 14pt; font-weight: bold; }' +
+      '.contact { font-size: 9.5pt; }' +
+      'ul { margin-top: 2pt; margin-bottom: 6pt; }' +
+      'li { text-align: justify; }' +
+      'p { text-align: justify; margin: 0 0 4pt 0; }' +
+      'a { color: #1a1a1a; }' +
+      '</style></head><body>' + body + '</body></html>';
+
+    var blob = new Blob(["\ufeff", html], { type: "application/msword" });
+    var a = document.createElement("a");
+    a.href = URL.createObjectURL(blob);
+    a.download = FILE_NAME + ".doc";
+    document.body.appendChild(a);
+    a.click();
+    document.body.removeChild(a);
+    setTimeout(function () { URL.revokeObjectURL(a.href); }, 1000);
+  }
+</script>
+
 </body>
 </html>
